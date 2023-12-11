@@ -47,7 +47,6 @@ input_t ReadInput(const string &inputFile) {
 // calculate the total distances per coordinate
 int_t sumDist(vector<int_t> &coords, int_t expansion)
 {
-    sort(coords.begin(), coords.end());
     int_t sum = 0;
     int_t before = 1;
     auto after = (int_t)coords.size()-1;
@@ -70,6 +69,8 @@ void Part12(input_t& input) {
         xCoord.push_back(g.first);
         yCoord.push_back(g.second);
     }
+    sort(xCoord.begin(), xCoord.end());
+    sort(yCoord.begin(), yCoord.end());
     int_t totalDist1 = sumDist(xCoord, 2) + sumDist(yCoord, 2);
     int_t totalDist2 = sumDist(xCoord, 1000000) + sumDist(yCoord, 1000000);
     cout << "Part1: " <<  totalDist1 << endl;
