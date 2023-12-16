@@ -149,11 +149,13 @@ void Part2(input_t& input) {
     for (int x = 0; x < w; x++) {
         resetLightMap(map);
         maxEnergy = max(maxEnergy, fillLightMap(map, x, 0, DOWN));
+        resetLightMap(map);
         maxEnergy = max(maxEnergy, fillLightMap(map, x, h-1, UP));
     }
     for (int y = 0; y < h; y++) {
         resetLightMap(map);
         maxEnergy = max(maxEnergy, fillLightMap(map, 0, y, RIGHT));
+        resetLightMap(map);
         maxEnergy = max(maxEnergy, fillLightMap(map, w-1, y, LEFT));
     }
     cout << "Part2: " << maxEnergy << endl;
